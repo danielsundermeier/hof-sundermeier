@@ -14,11 +14,18 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('bluehpatenschaft.index');
 });
+
+Route::get('/bluehpatenschaft', function () {
+    return view('bluehpatenschaft.index');
+})->name('bluehpatenschaft.index');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
+
+Route::get('/impressum', [ App\Http\Controllers\Legal\ImpressumController::class, 'index' ])->name('legal.impressum.index');
+Route::post('/contact', [App\Http\Controllers\ContactformController::class, 'store'])->middleware(['honey'])->name('contactform.store');
 
 require __DIR__.'/auth.php';

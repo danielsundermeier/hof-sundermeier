@@ -8,15 +8,15 @@
                     </a>
                 </div>
                 <div class="hidden md:block">
-                    <div class="ml-10 flex items-baseline space-x-4">
+                    <div class="hidden ml-10 flex items-baseline space-x-4">
                         <a href="#kontakt" class="px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700">Kontakt</a>
-                        <a href="#bluehpatenschaft" class="px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700">Blühpatenschaft</a>
+                        <a href="{{ route('bluehpatenschaft.index') }}" class="px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700">Blühpatenschaft</a>
                         <a href="#weidehaehnchen" class="px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700">Weidehähnchen</a>
                     </div>
                 </div>
             </div>
             <div class="hidden md:block">
-                <div class="ml-4 flex items-center md:ml-6">
+                <div class="hidden ml-4 flex items-center md:ml-6">
                     @auth
                         <a href="" class="px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700">
                             Warenkorb
@@ -57,7 +57,7 @@
                 </div>
             </div>
 
-            <div class="-mr-2 flex md:hidden">
+            <div class="hidden -mr-2 flex md:hidden">
                 <!-- Mobile menu button -->
                 <button class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:bg-gray-700 focus:text-white">
                     <!-- Menu open: "hidden", Menu closed: "block" -->
@@ -84,7 +84,7 @@
         class="md:hidden bg-gray-700">
         <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
             <a href="#kontakt" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700">Kontakt</a>
-            <a href="#bluehpatenschaft" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700">Blühpatenschaft</a>
+            <a href="{{ route('bluehpatenschaft.index') }}" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700">Blühpatenschaft</a>
             <a href="#weidehaehnchen" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700">Weidehähnchen</a>
         </div>
         @auth
