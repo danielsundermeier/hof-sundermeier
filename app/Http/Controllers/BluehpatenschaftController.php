@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Mail;
 
 class BluehpatenschaftController extends Controller
 {
@@ -22,6 +23,8 @@ class BluehpatenschaftController extends Controller
      */
     public function index()
     {
+        $quantity_max = 1200;
+
         $response = Http::baseUrl(config('services.rechnungspilot.base_url'))
             ->withToken(config('services.rechnungspilot.api_token'))
             ->get('/api/companies/' . config('services.rechnungspilot.company_id') . '/invoices', [
@@ -30,13 +33,17 @@ class BluehpatenschaftController extends Controller
 
         $invoices = $response->json()['data'];
         $bluehpaten = [];
+        $quantity_sum = 0;
         foreach ($invoices as $invoice) {
-            if ($invoice['outstanding'] > 0) {
-                continue;
-            }
 
             foreach ($invoice['items'] as $item) {
                 if ($item['item_id'] != config('services.rechnungspilot.bluehpatenschaft_item_id')) {
+                    continue;
+                }
+
+                $quantity_sum += $item['quantity'];
+
+                if ($invoice['outstanding'] > 0) {
                     continue;
                 }
 
@@ -46,9 +53,22 @@ class BluehpatenschaftController extends Controller
             }
         }
 
+        $quantity_available = $quantity_max - $quantity_sum;
+        $quantities = [];
+        $quantities_count = 0;
+        foreach (self::QUANTITIES as $quantity => $gross_formatted) {
+            if ($quantity > $quantity_available) {
+                continue;
+            }
+
+            $quantities[$quantity] = $gross_formatted;
+            $quantities_count++;
+        }
+
         return view('bluehpatenschaft.index')
             ->with('bluehpaten', $bluehpaten)
-            ->with('quantites', self::QUANTITIES);
+            ->with('quantites', $quantities)
+            ->with('has_available_quantities', $quantities_count > 0);
     }
 
     /**
@@ -118,6 +138,9 @@ class BluehpatenschaftController extends Controller
                 'text' => 'Bestellung konnte nicht verarbeitet werden.',
             ]);
         }
+
+        Mail::to('daniel@hof-sundermeier.de')
+            ->queue(new \App\Mail\Orders\Created());
 
         return back()->with('status', [
             'type' => 'success',
