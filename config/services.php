@@ -30,4 +30,11 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'rechnungspilot' => [
+        'api_token' => env('RECHNUNGSPILOT_API_TOKEN'),
+        'company_id' => env('RECHNUNGSPILOT_COMPANY_ID'),
+        'bluehpatenschaft_item_id' => env('RECHNUNGSPILOT_BLUEHPATENSCHAFT_ITEM_ID'),
+        'base_url' => env('RECHNUNGSPILOT_BASE_URL'),
+    ],
+
 ];
