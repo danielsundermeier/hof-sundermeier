@@ -10,6 +10,7 @@
             <p class="my-3">Höchste Zeit also, diesen kleinen Bewohnern der Erde ein neues Zuhause zu bieten! Wir würden gerne unseren Beitrag leisten und haben eine Ackerfläche zur Verfügung gestellt und zur Blühwiese gemacht.</p>
             <p class="my-3">Durch das Anlegen einer Blühwiese haben wir einen Ort geschaffen, der vom Menschen unberührt bleibt und an dem sich Insekten wohl fühlen und gerne leben. Damit können wir alle gemeinsam zum Artenschutz beitragen.</p>
             <p class="my-3">Mitmachen kann jeder, der sich für Insekten und Naturschutz engagieren möchte und sich an einer blühenden Wiese mit Gesumme erfreut.</p>
+            <p class="my-3">Eine Blühpatenschaft gilt immer für ein Jahr.</p>
         </div>
         <div class="lg:w-1/2">
             <a href="https://goo.gl/maps/CuYLrKWmA458WAou6" target="_blank">
