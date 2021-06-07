@@ -23,7 +23,7 @@ class BluehpatenschaftController extends Controller
      */
     public function index()
     {
-        $quantity_max = 1200;
+        $quantity_max = 750;
 
         $response = Http::baseUrl(config('services.rechnungspilot.base_url'))
             ->withToken(config('services.rechnungspilot.api_token'))
