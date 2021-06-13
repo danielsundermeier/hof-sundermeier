@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Carbon;
+use Illuminate\Support\Str;
+
 
 class BluehpatenschaftController extends Controller
 {
@@ -65,9 +69,31 @@ class BluehpatenschaftController extends Controller
             $quantities_count++;
         }
 
+        $images = [];
+        $image_directories = Storage::disk('public')->directories('bluehpatenschaft');
+        rsort($image_directories);
+        foreach ($image_directories as $directory) {
+            $date = new Carbon(basename($directory));
+            $file_paths = Storage::disk('public')->files($directory);
+            $files = [];
+            foreach($file_paths as $file_path) {
+                if (! Str::startsWith(basename($file_path), 'image')) {
+                    continue;
+                }
+
+                $width = str_replace(['image,w_', '.png'], '', basename($file_path));
+                $files[$width] = $file_path;
+            }
+            $images[] = [
+                'name' => $date->format('d.m.Y'),
+                'files' => $files,
+            ];
+        }
+
         return view('bluehpatenschaft.index')
             ->with('bluehpaten', $bluehpaten)
-            ->with('quantites', $quantities)
+            ->with('images', $images)
+            ->with('quantities', $quantities)
             ->with('has_available_quantities', $quantities_count > 0);
     }
 
