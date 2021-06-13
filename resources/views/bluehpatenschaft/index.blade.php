@@ -7,7 +7,7 @@
         <div class="absolute flex items-center justify-center w-screen inset-0 text-white">
             <div class="max-w-xl mx-auto px-4 text-center sm:px-6 lg:max-w-7xl lg:px-8">
                 <h2 class="font-bold my-3 md:text-7xl text-4xl">Meissen blüht auf</h2>
-                <p class="my-3 text-xl">Wir legen eine Blühfläche an und Sie können uns dabei unterstützen.</p>
+                <p class="my-3 text-xl">Wir legen eine Blühwiese an und Sie können uns dabei unterstützen.</p>
             </div>
         </div>
 
