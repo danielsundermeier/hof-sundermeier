@@ -1,7 +1,7 @@
 <div class="py-20 bg-white" id="form">
 
     <div class="max-w-xl mx-auto px-4 sm:px-6 lg:max-w-7xl lg:px-8">
-        <h2 class="text-3xl sm:text-5xl sm:leading-none sm:tracking-tight lg:text-6xl mb-6">Blühpate für 2021 werden</h2>
+        <h2 class="text-3xl sm:text-5xl sm:leading-none sm:tracking-tight lg:text-6xl mb-6">Blühpate für Blühsaison 2021 werden</h2>
         <form action="{{ route('bluehpatenschaft.store') }}" method="POST">
             @csrf
 
@@ -10,7 +10,7 @@
                     <label for="quantity" class="block text-sm font-medium text-gray-700">Blühfläche</label>
                     <select id="quantity" name="quantity" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-green-500 focus:border-green-500 sm:text-sm rounded-md">
                         @foreach ($quantities as $quantity => $gross)
-                            <option value="{{ $quantity }}">{{ $quantity }} m2 - {{ number_format($gross, 2, ',', '.') }} € für 1 Jahr</option>
+                            <option value="{{ $quantity }}">{{ $quantity }} m2 - {{ number_format($gross, 2, ',', '.') }} € für 1 Blühsaison</option>
                         @endforeach
                     </select>
                 </div>
