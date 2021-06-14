@@ -31,7 +31,7 @@
             @endisset
 
             <!-- Page Content -->
-            <main class="@empty ($header) pt-16 @endempty pb-8">
+            <main class="@empty ($header) pt-16 @endempty">
                 {{ $slot }}
             </main>
 

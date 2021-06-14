@@ -2,11 +2,7 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-16">
             <div class="flex-grow flex items-center">
-                <div class="flex-shrink-0">
-                    <a href="/">
-                        <x-application-logo class="block h-10 w-auto fill-current text-gray-600" />
-                    </a>
-                </div>
+                <a href="/" class="ml-3 text-white font-bold text-xl">Hof Sundermeier</a>
                 <div class="hidden md:block">
                     <div class="hidden ml-10 flex items-baseline space-x-4">
                         <a href="#kontakt" class="px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700">Kontakt</a>

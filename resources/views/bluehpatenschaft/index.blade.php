@@ -8,28 +8,22 @@
             <div class="max-w-xl mx-auto px-4 text-center sm:px-6 lg:max-w-7xl lg:px-8">
                 <h2 class="font-bold my-3 md:text-7xl text-4xl">Meissen blüht auf</h2>
                 <p class="my-3 text-xl">Wir legen eine Blühwiese an und Sie können uns dabei unterstützen.</p>
+                @if ($has_available_quantities)
+                    <a href="#form" class="mt-8 w-full inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-gray-600 bg-white hover:bg-gray-50 sm:w-auto">
+                        Jetzt Blühpate werden
+                    </a>
+                @endif
             </div>
         </div>
 
     </div>
 
+    @include('bluehpatenschaft.reasons')
+
     <div class="py-20 bg-gray-800 text-white">
 
         <div class="max-w-xl mx-auto px-4 sm:px-6 lg:max-w-7xl lg:px-8">
-            <h2 class="text-3xl font-bold mb-6">Grüne Gründe für eine Blühwiese</h2>
-            <p class="my-3">Insekten sind unverzichtbar für unser Ökosystem. Sie übernehmen nicht nur die wichtige Rolle der Bestäubung für viele Pflanzen und sorgen so dafür, dass wir als Menschen Ernten einfahren und uns davon ernähren können. Sie selbst sind ebenfalls Nahrungsmittelgrundlage für viele andere Tierarten, wie beispielsweise Vögel. Außerdem sorgen Insekten für eine verbesserte Bodenqualität und sind natürliche Schädlingsbekämpfer.</p>
-            <p class="my-3">Bienen und andere Insekten finden aber immer weniger Lebensraum.</p>
-            <p class="my-3">Höchste Zeit also, diesen kleinen Bewohnern der Erde ein neues Zuhause zu bieten! Wir würden gerne unseren Beitrag leisten und haben eine Ackerfläche zur Verfügung gestellt und zur Blühwiese gemacht.</p>
-            <p class="my-3">Durch das Anlegen einer Blühwiese haben wir einen Ort geschaffen, der vom Menschen unberührt bleibt und an dem sich Insekten wohl fühlen und gerne leben. Damit können wir alle gemeinsam zum Artenschutz beitragen.</p>
-            <p class="my-3">Mitmachen kann jeder, der sich für Insekten und Naturschutz engagieren möchte und sich an einer blühenden Wiese mit Gesumme erfreut.</p>
-            <p class="my-3">Eine Blühpatenschaft gilt immer für ein Jahr.</p>
-        </div>
-
-    </div>
-
-    <div class="py-20">
-
-        <div class="max-w-xl mx-auto px-4 sm:px-6 lg:max-w-7xl lg:px-8">
+            <h2 class="mb-6 text-3xl sm:text-5xl sm:leading-none sm:tracking-tight lg:text-6xl mt-3 lg:mt-0">Die Blühwiese</h2>
             <div class="lg:flex">
 
                 <div class="lg:w-1/2 mr-3">
@@ -38,7 +32,6 @@
                     </a>
                 </div>
                 <div class="lg:w-1/2">
-                    <h2 class="text-3xl font-bold mt-3 lg:mt-0">Die Blühwiese</h2>
 
                     <p class="mt-3 prose prose-indigo prose-lg mx-auto">Die Blühwiese befindet sich neben unserem Hof direkt an der Forststraße.</p>
 
@@ -69,6 +62,12 @@
                         </div>
                     </dl>
 
+                    <div class="flex justify-center">
+                        <a href="{{ route('legal.impressum.index') }}" class="mt-6 inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">
+                            Fläche vorschlagen
+                        </a>
+                    </div>
+
                 </div>
 
             </div>
@@ -91,7 +90,7 @@
                                     alt="">
                             </picture>
                         </a>
-                        <p class="mt-2 block text-sm font-medium text-gray-900 truncate pointer-events-none">{{ $image['name'] }}</p>
+                        <p class="mt-2 block text-sm font-medium truncate pointer-events-none">{{ $image['name'] }}</p>
                     </li>
                 @endforeach
             </ul>
@@ -100,9 +99,9 @@
     </div>
 
     @if (count($bluehpaten))
-        <div class="py-20 bg-gray-800">
-            <div class="my-6 max-w-xl mx-auto px-4 sm:px-6 lg:max-w-7xl lg:px-8">
-                <h2 class="font-bold text-3xl mb-3 text-white">Vielen Dank an die Blühpaten</h2>
+        <div class="py-20 bg-green-600">
+            <div class="max-w-xl mx-auto px-4 sm:px-6 lg:max-w-7xl lg:px-8">
+                <h2 class="mb-6 text-3xl font-extrabold text-white sm:text-5xl sm:leading-none sm:tracking-tight lg:text-6xl">Vielen Dank an die Blühpaten</h2>
 
                 <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
                     @foreach($bluehpaten as $bluehpate)
@@ -118,27 +117,27 @@
     @if ($has_available_quantities)
         @include('bluehpatenschaft.create')
     @else
-        <div class="my-6 max-w-xl mx-auto px-4 sm:px-6 lg:max-w-7xl lg:px-8">
+        <div class="max-w-xl mx-auto px-4 sm:px-6 lg:max-w-7xl lg:px-8">
             Alle Patenschaften für dieses Jahr wurden verteilt. Vielen Dank an alle Blühpaten!
         </div>
     @endif
 
 </x-app-layout>
 <script type="text/javascript">
-    var copyTextareaBtn = document.querySelector('.js-textareacopybtn');
+    // var copyTextareaBtn = document.querySelector('.js-textareacopybtn');
 
-    copyTextareaBtn.addEventListener('click', function(event) {
-        var copyTextarea = document.querySelector('.js-copytextarea');
+    // copyTextareaBtn.addEventListener('click', function(event) {
+    //     var copyTextarea = document.querySelector('.js-copytextarea');
 
-        copyTextarea.focus();
-        copyTextarea.select();
+    //     copyTextarea.focus();
+    //     copyTextarea.select();
 
-        try {
-            var successful = document.execCommand('copy');
-            var msg = successful ? 'successful' : 'unsuccessful';
-            console.log('Copying text command was ' + msg);
-        } catch (err) {
-            console.log('Oops, unable to copy');
-        }
-    });
+    //     try {
+    //         var successful = document.execCommand('copy');
+    //         var msg = successful ? 'successful' : 'unsuccessful';
+    //         console.log('Copying text command was ' + msg);
+    //     } catch (err) {
+    //         console.log('Oops, unable to copy');
+    //     }
+    // });
 </script>
