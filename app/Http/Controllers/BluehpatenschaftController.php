@@ -15,7 +15,7 @@ class BluehpatenschaftController extends Controller
     const QUANTITIES = [
         50 => 18,
         100 => 34,
-        250 => 62,
+        250 => 80,
         500 => 155,
         1000 => 300,
     ];
