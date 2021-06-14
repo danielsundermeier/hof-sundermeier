@@ -62,9 +62,11 @@
                         </div>
                     </dl>
 
+                    <p class="mt-3 text-center prose prose-indigo prose-lg mx-auto">Blühwiese vor dem eigenen Garten?</p>
+
                     <div class="flex justify-center">
                         <a href="{{ route('legal.impressum.index') }}" class="mt-6 inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">
-                            Fläche vorschlagen
+                            Blühwiese auf einer anderer Ackerfläche vorschlagen
                         </a>
                     </div>
 
