@@ -87,6 +87,7 @@ class BluehpatenschaftController extends Controller
             $images[] = [
                 'name' => $date->format('d.m.Y'),
                 'files' => $files,
+                'biggest_path' => $file_path,
             ];
         }
 

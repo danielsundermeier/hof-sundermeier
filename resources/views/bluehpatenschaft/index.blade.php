@@ -66,7 +66,7 @@
 
                     <div class="flex justify-center">
                         <a href="{{ route('legal.impressum.index') }}" class="mt-6 inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">
-                            Blühwiese auf einer anderer Ackerfläche vorschlagen
+                            Blühwiese auf einer anderen Ackerfläche vorschlagen
                         </a>
                     </div>
 
@@ -79,7 +79,7 @@
             <ul role="list" class="grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-3 sm:gap-x-6 lg:grid-cols-4 xl:gap-x-8">
                 @foreach ($images as $directory => $image)
                     <li class="relative">
-                        <a href="{{ Storage::disk('public')->url($image['files'][1400]) }}" target="_blank" class="group block w-full aspect-w-10 aspect-h-7 rounded-lg bg-gray-100 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-offset-gray-100 focus-within:ring-indigo-500 overflow-hidden">
+                        <a href="{{ Storage::disk('public')->url($image['biggest_path']) }}" target="_blank" class="group block w-full aspect-w-10 aspect-h-7 rounded-lg bg-gray-100 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-offset-gray-100 focus-within:ring-indigo-500 overflow-hidden">
                             <picture class="object-cover pointer-events-none group-hover:opacity-75">
                                 <img
                                     sizes="(max-width: 1400px) 100vw, 1400px"
@@ -88,7 +88,7 @@
                                             {{ Storage::disk('public')->url($file) }} {{ $width }}w,
                                         @endforeach
                                         "
-                                    src="{{ Storage::disk('public')->url($image['files'][1400]) }}"
+                                    src="{{ Storage::disk('public')->url($image['biggest_path']) }}"
                                     alt="">
                             </picture>
                         </a>
