@@ -77,17 +77,19 @@ class BluehpatenschaftController extends Controller
             $file_paths = Storage::disk('public')->files($directory);
             $files = [];
             foreach($file_paths as $file_path) {
-                if (! Str::startsWith(basename($file_path), 'image')) {
+                if (! Str::endsWith(basename($file_path), '.png')) {
                     continue;
                 }
 
-                $width = str_replace(['image,w_', '.png'], '', basename($file_path));
+                $parts = explode(',w_', basename($file_path));
+                $width = str_replace(['.png'], '', $parts[1]);
                 $files[$width] = $file_path;
             }
+            ksort($files);
             $images[] = [
                 'name' => $date->format('d.m.Y'),
                 'files' => $files,
-                'biggest_path' => $file_path,
+                'biggest_path' => end($files),
             ];
         }
 
