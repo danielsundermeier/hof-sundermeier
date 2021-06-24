@@ -1,8 +1,13 @@
-<nav id="nav" class="fixed w-screen z-10 bg-gray-800" x-data="{ open: false }">
+<nav id="nav" class="fixed w-screen z-10 bg-gray-50" x-data="{ open: false }">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-16">
             <div class="flex-grow flex items-center">
-                <a href="/" class="ml-3 text-white font-bold text-xl">Hof Sundermeier</a>
+                <div class="flex-shrink-0 w-24 h-24">
+                    <a class="" href="/">
+                        <x-application-logo class="block w-auto fill-current text-gray-600" />
+                    </a>
+                </div>
+                <div class="flex-grow"><a href="/" class="ml-3 text-gray-600 font-bold text-xl">Hof Sundermeier</a></div>
                 <div class="hidden md:block">
                     <div class="hidden ml-10 flex items-baseline space-x-4">
                         <a href="#kontakt" class="px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700">Kontakt</a>

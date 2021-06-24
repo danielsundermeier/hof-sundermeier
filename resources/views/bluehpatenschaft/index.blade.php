@@ -57,7 +57,7 @@
                                 Pflanzen
                             </dt>
                             <dd class="mt-1 text-sm sm:mt-0 sm:col-span-2">
-                                Sonnenblumen, Phacelia und viele mehr
+                                Kulturmalve, Rotklee, Phacelia, Sonnenblumen, Ölrettich, Sommerwicken, Buchweizen, Ringelblume, Leindotter, Öllein, Borretsch, Dill, Koriander, Ramtillkraut, Inkarnatklee und Schmuckkörbchen.
                             </dd>
                         </div>
                     </dl>
