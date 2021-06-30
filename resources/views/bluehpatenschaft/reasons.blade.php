@@ -14,7 +14,7 @@
             <div class="relative p-8 bg-white border border-gray-200 rounded-2xl shadow-sm flex flex-col">
                 <div class="flex-1">
                     <h3 class="text-xl font-semibold text-gray-900">Lebens- und Rückzugsraum</h3>
-                    <p class="mt-6 text-gray-500">Blühwiese bieten zahlreichen Insekten, Vögeln, Kleintieren und auch dem Niederwild einen geeigneten Lebens- und Rückzugsraum. Durch den Anbau entstehen wertvolle Lebensräume.</p>
+                    <p class="mt-6 text-gray-500">Blühwiesen bieten zahlreichen Insekten, Vögeln, Kleintieren und auch dem Niederwild einen geeigneten Lebens- und Rückzugsraum. Durch den Anbau entstehen wertvolle Lebensräume.</p>
                 </div>
             </div>
 
