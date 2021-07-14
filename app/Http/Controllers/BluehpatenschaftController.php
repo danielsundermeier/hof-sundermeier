@@ -40,6 +40,10 @@ class BluehpatenschaftController extends Controller
         $quantity_sum = 0;
         foreach ($invoices as $invoice) {
 
+            if ($invoice['number'] == 0) {
+                continue;
+            }
+
             foreach ($invoice['items'] as $item) {
                 if ($item['item_id'] != config('services.rechnungspilot.bluehpatenschaft_item_id')) {
                     continue;
