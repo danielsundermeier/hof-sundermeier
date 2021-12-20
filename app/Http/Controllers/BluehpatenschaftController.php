@@ -90,10 +90,15 @@ class BluehpatenschaftController extends Controller
                 $files[$width] = $file_path;
             }
             ksort($files);
+            $description = 'Blühwiese Am Hof vom ' . $date->format('d.m.Y') . '.' . "\n" . ' www.hof-sundermeier.de';
             $images[] = [
                 'name' => $date->format('d.m.Y'),
                 'files' => $files,
                 'biggest_path' => end($files),
+                'social_media_links' => [
+                    'twitter' => 'https://twitter.com/intent/tweet/?text=' . urlencode($description) . '&url=' . urlencode(Storage::disk('public')->url(end($files))),
+                    'pinterest' => 'https://pinterest.com/pin/create/button/?url=http%3A%2F%2Fsharingbuttons.io&amp;media=' . urlencode(Storage::disk('public')->url(end($files))) . '&amp;description=' . urlencode($description),
+                ],
             ];
         }
 
@@ -122,6 +127,8 @@ class BluehpatenschaftController extends Controller
      */
     public function store(Request $request)
     {
+        $this->middleware('honey');
+
         $attributes = $request->validate([
             'firstname' => 'required|string',
             'lastname' => 'required|string',

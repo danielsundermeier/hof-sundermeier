@@ -1,9 +1,11 @@
 <div class="py-20 bg-white" id="form">
 
     <div class="max-w-xl mx-auto px-4 sm:px-6 lg:max-w-7xl lg:px-8">
-        <h2 class="text-3xl sm:text-5xl sm:leading-none sm:tracking-tight lg:text-6xl mb-6">Blühpate für Blühsaison 2021 werden</h2>
+        <h2 class="text-3xl sm:text-5xl sm:leading-none sm:tracking-tight lg:text-6xl mb-6">Blühpate für Blühsaison 2020 werden</h2>
         <form action="{{ route('bluehpatenschaft.store') }}" method="POST">
             @csrf
+
+            <x-honey/>
 
             <div class="grid grid-cols-6 gap-6">
                 <div class="col-span-6 sm:col-span-6">
