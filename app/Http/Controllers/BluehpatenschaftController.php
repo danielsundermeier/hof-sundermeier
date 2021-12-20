@@ -179,8 +179,13 @@ class BluehpatenschaftController extends Controller
             ]);
         }
 
-        Mail::to('daniel@hof-sundermeier.de')
-            ->queue(new \App\Mail\Orders\Created());
+        try {
+            Mail::to('daniel@hof-sundermeier.de')
+                ->queue(new \App\Mail\Orders\Created());
+        }
+        catch (\Exception $exception) {
+            mail('daniel@hof-sundermeier.de', 'Neue Blühpatenschaft Bestellung', 'Es gibt neue Bestellungen.');
+        }
 
         return back()->with('status', [
             'type' => 'success',
