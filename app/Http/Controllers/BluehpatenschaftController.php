@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Arr;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Carbon;
-use Illuminate\Support\Str;
 
 
 class BluehpatenschaftController extends Controller
@@ -35,7 +36,7 @@ class BluehpatenschaftController extends Controller
                 'item_id' => config('services.rechnungspilot.bluehpatenschaft_item_id'),
         ]);
 
-        $invoices = $response->json()['data'];
+        $invoices = Arr::get($response->json(), 'data', []);
         $bluehpaten = [];
         $quantity_sum = 0;
         foreach ($invoices as $invoice) {
