@@ -142,7 +142,7 @@
     @endif
 
     @if ($has_available_quantities)
-        @include('bluehpatenschaft.create')
+
     @else
         <div class="max-w-xl mx-auto px-4 sm:px-6 lg:max-w-7xl lg:px-8">
             Alle Patenschaften für dieses Jahr wurden verteilt. Vielen Dank an alle Blühpaten!
